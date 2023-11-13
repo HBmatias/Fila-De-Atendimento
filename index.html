@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./CCS/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital@0;1&display=swap" rel="stylesheet">
+    <title>Fila de Prioridades</title>
+</head>
+
+<body>
+    <div>
+        <span>Fila de Prioridades</span>
+        <form action="/pagina-processa-dados-do-form" method="post">
+            <div>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="usuario_nome" />
+            </div>
+            <div>
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="usuario_email" />
+            </div>
+            <div>
+                <label for="msg">Mensagem:</label>
+                <textarea id="msg" name="usuario_msg"></textarea>
+            </div>
+
+            <div class="button">
+                <button type="submit">Adicionar Paciente</button>
+            </div>
+        </form>
+        <div>
+            <ul>
+                <li><span>Emergencia Alta</span>
+                    <div>
+                        <span>Fila de espera alta Prioridade</span>
+                        <ul id="lista"></ul>
+                        <input type="button" onclick="gerar()" value="Clique"></input>
+                    </div>
+                </li>
+                <li><span>Emergengia Media</span>
+                    <div></div>
+                </li>
+                <li><span>Emergencia Baixa</span>
+                    <div></div>
+                </li>
+            </ul>
+        </div>
+        <script src="./Script/script.js"></script>
+</body>
+
+</html>
