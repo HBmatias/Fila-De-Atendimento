@@ -67,24 +67,36 @@ textarea {
     padding-left: 90px;
 }
 
-.button {
-    /* Para posicionar os botões para a mesma posição dos campos de texto */
-    padding-left: 90px;
-    /* mesmo tamanho que os elementos do tipo label */
+#buttonFilaDePrioridade {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
 }
 
-button {
+.buttonFilaDePrioridade {
     /* Esta margem extra representa aproximadamente o mesmo espaço que o espaço entre as labels e os seus campos de texto*/
     margin-left: 0.5em;
     border-radius: 50px;
     background-color: rgb(123, 199, 133);
+    padding: .4rem 2rem;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 3px #494444;
 }
 
-.OutputFilaEspera{
+.OutputFilaEspera {
     padding-top: 100px;
     text-align: center;
 }
 
-ul#removeBulletPoint{
+ul#removeBulletPoint {
     list-style-type: none;
 }

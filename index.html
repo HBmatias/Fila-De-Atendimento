@@ -49,30 +49,12 @@
                 <input type="submit" value="Submit">
             </div>
         </form>
-        <div class="OutputFilaEspera">
-            <ul id="removeBulletPoint">
-                <li><h1>Fila de Espera</h1>
-                    <div>
-                        <h2>Alta Prioridade</h2>
-                        <ul id="lista"></ul>
-                        <input type="button" onclick="gerar()" value="Clique"></input>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <h2>Media Prioridade</h2>
-                        <ul id="lista"></ul>
-                        <input type="button" onclick="gerar()" value="Clique"></input>
-                    </div>
-                </li>
-                <li><div>
-                    <h2>Baixa Prioridade</h2>
-                    <ul id="lista"></ul>
-                    <input type="button" onclick="gerar()" value="Clique"></input>
-                </div>
-                </li>
-            </ul>
+
+        <div id="buttonFilaDePrioridade">
+            <button onclick="location.href='ListagemDePrioridade.html'" class="buttonFilaDePrioridade">
+                Ver Fila</button>
         </div>
+
         <script src="./Script/script.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
