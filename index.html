@@ -21,14 +21,13 @@
         <div class="NameFila">
             <span>Cadastro de Pacientes</span>
         </div>
-        <form action="/pagina-processa-dados-do-form" method="post">
+        <form id="myFormData">
             <div>
                 <label for="nome">Nome:</label>
                 <input type="text" id="nome" name="usuario_nome" />
             </div>
             <div>
-                <label for="date">Data:</label>
-                <input type="datetime" id="date" name="usuario_date" />
+                Data de nascimento: <input type="date" id="dob">
             </div>
             <div>
                 <label for="msg">Mensagem:</label>
@@ -47,7 +46,7 @@
             </div>
 
             <div class="button">
-                <button type="submit">Adicionar Paciente</button>
+                <input type="submit" value="Submit">
             </div>
         </form>
         <div class="OutputFilaEspera">
