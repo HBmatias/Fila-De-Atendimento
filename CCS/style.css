@@ -1,7 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital@0;1&display=swap');
+* {
+    font-family: 'Agbalumo', sans-serif;
+}
 
-.body {
-    font-family: 'Ubuntu', sans-serif;
+.NameFila {
+    text-align: center;
+    padding: 1rem;
+    font-size: 2.5rem;
 }
 
 form {
@@ -56,6 +60,13 @@ textarea {
     resize: vertical;
 }
 
+.form-select {
+    width: 300px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-left: 90px;
+}
+
 .button {
     /* Para posicionar os botões para a mesma posição dos campos de texto */
     padding-left: 90px;
@@ -65,7 +76,15 @@ textarea {
 button {
     /* Esta margem extra representa aproximadamente o mesmo espaço que o espaço entre as labels e os seus campos de texto*/
     margin-left: 0.5em;
-    border-radius: 10px;
+    border-radius: 50px;
     background-color: rgb(123, 199, 133);
+}
 
+.OutputFilaEspera{
+    padding-top: 100px;
+    text-align: center;
+}
+
+ul#removeBulletPoint{
+    list-style-type: none;
 }
