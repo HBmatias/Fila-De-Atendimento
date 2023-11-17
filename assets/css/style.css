@@ -1,0 +1,95 @@
+* {
+    font-family: 'Agbalumo', sans-serif;
+}
+
+.NameFila {
+    text-align: center;
+    padding: 1rem;
+    font-size: 2.5rem;
+}
+
+form {
+    /* Apenas para centralizar o form na página */
+    margin: 0 auto;
+    width: 500px;
+    /* Para ver as bordas do formulário */
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+}
+
+form div+div {
+    margin-top: 1em;
+}
+
+input,
+textarea {
+    /* Para certificar-se que todos os campos de texto têm as mesmas configurações de fonte. Por padrão, textareas ter uma fonte monospace*/
+    font: 1em sans-serif;
+
+    /* Para dar o mesmo tamanho a todos os campo de texto */
+    width: 463px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    /* Para harmonizar o look & feel das bordas nos campos de texto*/
+    border: 1px solid #999;
+}
+
+input:focus,
+textarea:focus {
+    /* Dar um pouco de destaque nos elementos ativos */
+    border-color: #000;
+}
+
+textarea {
+    /* Para alinhar corretamente os campos de texto de várias linhas com sua label*/
+    vertical-align: top;
+
+    /* Para dar espaço suficiente para digitar algum texto */
+    height: 5em;
+
+    /* Para permitir aos usuários redimensionarem qualquer textarea verticalmente. Ele não funciona em todos os browsers */
+    resize: vertical;
+}
+
+.form-select {
+    width: 0.5rem;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 1rem .25rem;
+}
+
+#buttonFilaDePrioridade {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+}
+
+.buttonFilaDePrioridade {
+    /* Esta margem extra representa aproximadamente o mesmo espaço que o espaço entre as labels e os seus campos de texto*/
+    margin-left: 0.5em;
+    border-radius: 50px;
+    background-color: rgb(123, 199, 133);
+    padding: .4rem 2rem;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 3px #494444;
+}
+
+.OutputFilaEspera {
+    padding-top: 100px;
+    text-align: center;
+}
+
+ul#removeBulletPoint {
+    list-style-type: none;
+}
