@@ -21,6 +21,8 @@ $(function () {
         if (age < 18) {
             agePonderosity = 1;
             alert("baixa prioridade");
+        } else if (age => 0 || age <= 12) {
+            alert("Alta prioridade")
         } else if (age > 60) {
             agePonderosity = 3;
             alert("Alta prioridade")
