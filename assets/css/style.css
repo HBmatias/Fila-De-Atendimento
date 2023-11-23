@@ -85,11 +85,9 @@ textarea {
     box-shadow: 0 3px #494444;
 }
 
-.OutputFilaEspera {
-    padding-top: 100px;
+input[type=button]{
     text-align: center;
-}
-
-ul#removeBulletPoint {
-    list-style-type: none;
+    width: 40%;
+    height: 30%;
+    border-radius: 1rem;
 }
