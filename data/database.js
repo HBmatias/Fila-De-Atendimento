@@ -1,6 +1,98 @@
-
-class Patient {
+/**
+ * Classe para simulação de ações CRUD em ambiente local
+ * @param {String} table Nome da tabela
+ */
+class Tables {
     constructor() {
+        //-- Table
+        this.table = '';
+
+        //-- Save the increment like last key in table object
+        this.increment = Object.keys(this.getData()).length;
+    }
+
+    /**
+     * Acessa o json de itens para capturar os dados
+     * @param {String} id ID do item
+     * @return {Object} Retorna um objeto com os dados dos itens
+     */
+    getData(id = null) {
+        const data = localStorage.getItem(this.table);
+
+        if (!data) {
+            return {};
+        }
+        if (id === null) {
+            return JSON.parse(data);
+        }
+
+        const patient = JSON.parse(data)[id];
+        return patient || {};
+    }
+
+    /**
+     * Adiciona um novo item
+     * @param {Object} row Objeto com os dados do item
+     */
+    addRow(row) {
+        let data = this.getData();
+
+        if (data.length == 0) {
+            alert("Preencha todos os campos!");
+            return false;
+        }
+
+        data[this.increment] = row;
+        this.increment++;
+        localStorage.setItem(this.table, JSON.stringify(data));
+        return true;
+    }
+
+    /**
+     * Remove um id
+     * @param {String} id ID do item
+     */
+    removeRow(id) {
+        let data = this.getData();
+        delete data[id];
+        localStorage.setItem(this.table, JSON.stringify(data));
+    }
+
+    /**
+     * Remove uma lista de ids
+     * @param {Array<int>} ids Lista de IDs
+     */
+    removeRows(ids) {
+        let data = this.getData();
+        ids.forEach(id => {
+            delete data[id];
+        });
+        localStorage.setItem(this.table, JSON.stringify(data));
+    }
+
+    /**
+     * Atualiza os dados de um item
+     * @param {String} id ID do item
+     * @param {Object} data Objeto com os dados do item
+     */
+    updateRow(id, data) {
+        const patients = this.getData();
+        patients[id] = data;
+        localStorage.setItem(this.table, JSON.stringify(patients));
+    }
+}
+
+
+/**
+ * Classe referência para simulação de tabela `patients`
+ * @param {Object} patients Objeto com os dados padrão dos pacientes
+ */
+class Patient extends Tables {
+    constructor() {
+        super();
+
+        this.table = 'patients';
+
         this.patients = {
             "0": {
                 "name": "John Doe",
@@ -81,70 +173,12 @@ class Patient {
         };
 
         //-- Create a default localStorage to patients
-        if (localStorage.getItem('patients') == null) {
-            localStorage.setItem('patients', JSON.stringify(this.patients));
+        if (localStorage.getItem(this.table) == null) {
+            localStorage.setItem(this.table, JSON.stringify(this.patients));
         }
 
         //-- Save the increment like last key in patient object
-        this.increment = Object.keys(this.getPatients()).length;
-    }
-
-    /**
-     * Acessa o json de pacientes para capturar os dados
-     * @param {String} id ID do paciente
-     * @return {Object} Retorna um objeto com os dados dos pacientes
-     */
-    getPatients(id = null) {
-        const data = localStorage.getItem('patients');
-
-        if (!data) {
-            return {};
-        }
-        if (id === null) {
-            return JSON.parse(data);
-        }
-
-        const patient = JSON.parse(data)[id];
-        return patient || {};
-    }
-
-    /**
-     * Adiciona um novo paciente
-     * @param {Object} patient Objeto com os dados do paciente
-     */
-    addPatient(patient) {
-        let patients = this.getPatients();
-
-        if (patient.length == 0) {
-            alert("Preencha todos os campos!");
-            return false;
-        }
-
-        patients[this.increment] = patient;
-        this.increment++;
-        localStorage.setItem('patients', JSON.stringify(patients));
-        return true;
-    }
-
-    /**
-     * Remove um paciente
-     * @param {String} id ID do paciente
-     */
-    removePatient(id) {
-        let patients = this.getPatients();
-        delete patients[id];
-        localStorage.setItem('patients', JSON.stringify(patients));
-    }
-
-    /**
-     * Atualiza os dados de um paciente
-     * @param {String} id ID do paciente
-     * @param {Object} patient Objeto com os dados do paciente
-     */
-    updatePatient(id, patient) {
-        const patients = this.getPatients();
-        patients[id] = patient;
-        localStorage.setItem('patients', JSON.stringify(patients));
+        this.increment = Object.keys(this.getData()).length;
     }
 
 
