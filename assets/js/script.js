@@ -1,5 +1,5 @@
 $(function () {
-    $("#myFormData").on("submit", function (event) {
+    $(".listAccess").on("click", function (event) {
         event.preventDefault()
 
         var dob = new Date(document.getElementById("dob").value);
@@ -32,9 +32,6 @@ $(function () {
         }
 
     })
-
-    window.patients = new Patient();
-    $("#cadPatients").on("submit", cadPatients);
 });
 
 function gerar() {
@@ -45,21 +42,4 @@ function gerar() {
         item.appendChild(document.createTextNode(nomes[i]));
         lista.appendChild(item);
     }
-}
-
-function cadPatients() {
-    let patient = {
-        name: document.getElementById('name').value,
-        birthday: document.getElementById('birthday').value,
-        cpf: document.getElementById('cpf').value,
-    };
-
-    if (patient.nome == "" || patient.birth == "" || patient.cpf == "") {
-        alert("Preencha todos os campos!");
-        return false;
-    }
-
-    // E então salvar os dados novamente
-    if (window.patients.addPatient(patient))
-        alert("Paciente cadastrado com sucesso!");
 }

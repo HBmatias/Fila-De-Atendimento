@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
         integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Agbalumo&display=swap" rel="stylesheet">
@@ -28,69 +28,123 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Reservas</a>
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            Listas
+                            Cadastros
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li><a class="dropdown-item" href="cad-patient.html">Pacientes</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" aria-disabled="true">Em breve...</a>
-                    </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
             </div>
         </div>
     </nav>
 
     <div>
         <div class="NameFila">
-            <span>Cadastro de Pacientes</span>
+            <span>Acesso a Fila</span>
         </div>
-        <form id="myFormData">
-            <div>
-                <span>Nome Completo:</span>
-                <input type="text" id="nome" name="usuario_nome" />
-            </div>
-            <div>
-                <span>Data de Nascimento</span>
-                <input type="date" id="dob">
-            </div>
-            <div>
-                <label for="msg">Mensagem:</label>
-                <textarea id="msg" name="usuario_msg"></textarea>
-            </div>
-            <div>
-                <span>Classe de Problema</span>
-                <select class="form-select" aria-label="Select Problem">
-                    <option selected>Selecionar</option>
-                    <option value="1">Quadro Viral</option>
-                    <option value="2">Quadro Infeccioso</option>
-                    <option value="3">Lesão Leve</option>
-                    <option value="4">Lesão Exposta Leve</option>
-                    <option value="5">Lesão Exposta</option>
-                    <option value="6">Lesão Grave Interna</option>
-                </select>
-            </div>
+        <form id="listAccess">
+            <div class="row">
 
-            <div class="button">
-                <input type="submit" value="Submit">
+                <div class="col-12 mb-2">
+                    <label class="form-label" for="cpf">CPF:</label>
+                    <input class="form-control" type="text" id="cpf" name="cpf" />
+                </div>
+
+                <div class="col-12 mb-2">
+                    <label class="form-label" for="health">Condição de Saúde:</label>
+                    <select class="form-select" data-weight="11" id="health" name="health">
+                        <option selected disabled>Selecionar..</option>
+                        <optgroup label="Quadro Viral">
+                            <option value="1">Resfriado</option>
+                            <option value="1">Virose</option>
+                            <option value="3">Gripe</option>
+                            <option value="5">Covid-19</option>
+                        </optgroup>
+                        <optgroup label="Quadro Infeccioso">
+                            <option value="7">Infecção por bactéria</option>
+                            <option value="5">Infecção por fungo</option>
+                        </optgroup>
+                        <optgroup label="Lesão">
+                            <option value="3">Lesão Leve</option>
+                            <option value="7">Lesão Exposta</option>
+                            <option value="9">Lesão Interna</option>
+                        </optgroup>
+                        <optgroup label="Hemorragia">
+                            <option value="9">Interna</option>
+                            <option value="11">Externa</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="col-12 mb-2">
+                    <label class="form-label" for="family">Histórico Familiar:</label>
+                    <select class="form-select" data-weight="5" id="family" name="family">
+                        <option selected disabled>Selecionar..</option>
+                        <option value="1">Nenhum</option>
+                        <option value="9">Diabetes</option>
+                        <option value="5">Hipertensão</option>
+                        <option value="5">Pressão Baixa</option>
+                        <option value="7">Câncer</option>
+                        <option value="9">Doença Cardíaca</option>
+                        <option value="7">Doença Pulmonar</option>
+                        <option value="3">Doença Renal</option>
+                        <option value="7">Doença Hepática</option>
+                        <option value="11">Doença Neurológica</option>
+                        <option value="7">Doença Autoimune</option>
+                        <option value="3">Doença Hematológica</option>
+                        <option value="5">Doença Endócrina</option>
+                    </select>
+                </div>
+
+                <div class="col-12 mb-2">
+                    <label class="form-label" for="symptoms">Sintomas Apresentados:</label>
+                    <select class="form-select" data-weight="5" id="symptoms" name="symptoms">
+                        <option selected disabled>Selecionar..</option>
+                        <option value="1">Leve</option>
+                        <option value="3">Moderado</option>
+                        <option value="5">Grave</option>
+                    </select>
+                </div>
+
+                <div class="col-12 mb-2">
+                    <label class="form-label" for="deterioration">Taxa de Deterioração:</label>
+                    <select class="form-select" data-weight="9" id="deterioration" name="deterioration">
+                        <option selected disabled>Selecionar..</option>
+                        <option value="1">Lenta</option>
+                        <option value="3">Moderada</option>
+                        <option value="5">Rápida</option>
+                    </select>
+                </div>
+
+                <div class="col-12 mb-2">
+                    <label class="form-label" for="socioeconomic">Situação Socioeconômica:</label>
+                    <select class="form-select" data-weight="3" id="socioeconomic" name="socioeconomic">
+                        <option selected disabled>Selecionar..</option>
+                        <option value="1">Boa</option>
+                        <option value="3">Média</option>
+                        <option value="5">Baixa</option>
+                    </select>
+                </div>
+
+                <div class="col-12 mb-2">
+                    <label class="form-label" for="accessToCare">Acesso a Cuidados de Saúde:</label>
+                    <select class="form-select" data-weight="11" id="accessToCare" name="accessToCare">
+                        <option selected disabled>Selecionar..</option>
+                        <option value="1">Fácil</option>
+                        <option value="3">Moderado</option>
+                        <option value="5">Difícil</option>
+                    </select>
+                </div>
+
+                <div class="col-12 mt-3 text-center">
+                    <button type="button" class="btn btn-primary listAccess">Entrar na Fila</button>
+                </div>
             </div>
         </form>
 
@@ -98,19 +152,20 @@
             <button onclick="location.href='ListagemDePrioridade.html'" class="buttonFilaDePrioridade">
                 Ver Fila</button>
         </div>
+    </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.slim.min.js"
-            integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj+KsslFkCOt3TvJrX2AV/Gc3wOqA=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.slim.min.js"
+        integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj+KsslFkCOt3TvJrX2AV/Gc3wOqA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 
-        <script src="./assets/js/script.js"></script>
-        <script src="./data/database.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script src="./data/database.js"></script>
 </body>
 
 </html>
