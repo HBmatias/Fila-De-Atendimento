@@ -1,18 +1,36 @@
 $(function () {
+    window.patients = new Patient();
+    console.log(window.patients);
+
+    //-- Adiciona máscara no cpf
+    $('#cpf').mask('000.000.000-00', { reverse: true });
+
     $(".listAccess").on("click", function (event) {
         event.preventDefault()
 
-        var dob = new Date(document.getElementById("dob").value);
-        var today = new Date();
+        let form = $("#listAccess"),
+            cpf = form.find("#cpf").val().replace(/\D/g, '');
 
-        if (dob.getTime() > today.getTime()) {
-            alert("A data de nascimento não pode ser no futuro!");
+        //-- Valida os dados do cpf
+        if (cpf.length !== 11 || cpf == "") {
+            alert("CPF inválido!");
             return false;
         }
 
-        var age = today.getFullYear() - dob.getFullYear();
-        var m = today.getMonth() - dob.getMonth();
-        if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
+        //-- Captura os dados do paciente
+        let patient = window.patients.getRowByCPF(cpf);
+        console.log(patient, patient.length === 0 || patient == {});
+        if (patient.length === 0 || patient == {}) {
+            alert("Paciente não encontrado!");
+            return false;
+        }
+
+        var birth = new Date(patient.birthday);
+        var today = new Date();
+
+        var age = today.getFullYear() - birth.getFullYear();
+        var m = today.getMonth() - birth.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) {
             age--;
         }
 

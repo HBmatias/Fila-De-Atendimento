@@ -97,77 +97,77 @@ class Patient extends Tables {
             "0": {
                 "name": "John Doe",
                 "birthday": "1980-01-01",
-                "cpf": "555-1234",
+                "cpf": "11122255523",
             },
             "1": {
                 "name": "Jane Doe",
                 "birthday": "1985-02-02",
-                "cpf": "555-5678",
+                "cpf": "11122255567",
             },
             "2": {
                 "name": "Jim Doe",
                 "birthday": "1990-03-03",
-                "cpf": "555-9101",
+                "cpf": "11122255510",
             },
             "3": {
                 "name": "Jackie Doe",
                 "birthday": "1982-04-04",
-                "cpf": "555-1112",
+                "cpf": "11122255511",
             },
             "4": {
                 "name": "Jordan Smith",
                 "birthday": "1988-05-05",
-                "cpf": "555-1314",
+                "cpf": "11122255531",
             },
             "5": {
                 "name": "Jennifer Williams",
                 "birthday": "1995-06-06",
-                "cpf": "555-1516",
+                "cpf": "11122255551",
             },
             "6": {
                 "name": "Michael Johnson",
                 "birthday": "1983-07-07",
-                "cpf": "555-1718",
+                "cpf": "11122255571",
             },
             "7": {
                 "name": "Megan Brown",
                 "birthday": "1992-08-08",
-                "cpf": "555-1920",
+                "cpf": "11122255592",
             },
             "8": {
                 "name": "Matthew Taylor",
                 "birthday": "1986-09-09",
-                "cpf": "555-2122",
+                "cpf": "11122255512",
             },
             "9": {
                 "name": "Melissa Davis",
                 "birthday": "1991-10-10",
-                "cpf": "555-2324",
+                "cpf": "11122255532",
             },
             "10": {
                 "name": "Maxwell Miller",
                 "birthday": "1984-11-11",
-                "cpf": "555-2526",
+                "cpf": "11122255552",
             },
             "11": {
                 "name": "Michelle Anderson",
                 "birthday": "1993-12-12",
-                "cpf": "555-2728",
+                "cpf": "11122255572",
             },
             "12": {
                 "name": "Mark Thomas",
                 "birthday": "1981-01-13",
-                "cpf": "555-2930",
+                "cpf": "11122255593",
             },
             "13": {
                 "name": "Maria Garcia",
                 "birthday": "1994-02-14",
-                "cpf": "555-3132",
+                "cpf": "11122255513",
             },
             "14": {
                 "name": "Martin Rodriguez",
                 "birthday": "1987-03-15",
-                "cpf": "555-3334",
+                "cpf": "11122255533",
             },
             // Continue adding more patients as needed
         };
@@ -181,5 +181,20 @@ class Patient extends Tables {
         this.increment = Object.keys(this.getData()).length;
     }
 
-
+    /**
+     * Acessa o json de um item em específico a partir do CPF do paciente
+     * @param {string} cpf CPF do paciente
+     * @return {Object} Retorna um objeto com os dados do item
+     */
+    getRowByCPF(cpf) {
+        const patients = this.getData();
+        const keys = Object.keys(patients);
+        for (let i = 0; i < keys.length; i++) {
+            const key = keys[i];
+            if (patients[key].cpf === cpf.replace(/\D/g, '')) {
+                return patients[key];
+            }
+        }
+        return {};
+    }
 }

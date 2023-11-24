@@ -1,5 +1,4 @@
 $(function () {
-    window.patients = new Patient();
     $("#cadPatients").on("submit", cadPatients);
 
     console.log(JSON.parse(localStorage.getItem('patients')));
