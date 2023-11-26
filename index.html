@@ -53,12 +53,22 @@
 
                 <div class="col-12 mb-2">
                     <label class="form-label" for="cpf">CPF:</label>
-                    <input class="form-control" type="text" id="cpf" name="cpf" />
+                    <input class="form-control required" type="text" id="cpf" name="cpf" required="required" />
+                </div>
+
+                <div class="col-12 mb-2">
+                    <label class="form-label" for="comorbidity">Apresenta Comorbidades:</label>
+                    <select class="form-select required" data-weight="11" id="comorbidity" name="comorbidity"
+                        required="required">
+                        <option selected disabled>Selecionar..</option>
+                        <option value="S">Sim</option>
+                        <option value="N">Não</option>
+                    </select>
                 </div>
 
                 <div class="col-12 mb-2">
                     <label class="form-label" for="health">Condição de Saúde:</label>
-                    <select class="form-select" data-weight="11" id="health" name="health">
+                    <select class="form-select required" data-weight="15" id="health" name="health" required="required">
                         <option selected disabled>Selecionar..</option>
                         <optgroup label="Quadro Viral">
                             <option value="1">Resfriado</option>
@@ -68,7 +78,7 @@
                         </optgroup>
                         <optgroup label="Quadro Infeccioso">
                             <option value="7">Infecção por bactéria</option>
-                            <option value="5">Infecção por fungo</option>
+                            <option value="6">Infecção por fungo</option>
                         </optgroup>
                         <optgroup label="Lesão">
                             <option value="3">Lesão Leve</option>
@@ -76,7 +86,7 @@
                             <option value="9">Lesão Interna</option>
                         </optgroup>
                         <optgroup label="Hemorragia">
-                            <option value="9">Interna</option>
+                            <option value="10">Interna</option>
                             <option value="11">Externa</option>
                         </optgroup>
                     </select>
@@ -84,7 +94,7 @@
 
                 <div class="col-12 mb-2">
                     <label class="form-label" for="family">Histórico Familiar:</label>
-                    <select class="form-select" data-weight="5" id="family" name="family">
+                    <select class="form-select required" data-weight="5" id="family" name="family" required="required">
                         <option selected disabled>Selecionar..</option>
                         <option value="1">Nenhum</option>
                         <option value="9">Diabetes</option>
@@ -104,21 +114,12 @@
 
                 <div class="col-12 mb-2">
                     <label class="form-label" for="symptoms">Sintomas Apresentados:</label>
-                    <select class="form-select" data-weight="5" id="symptoms" name="symptoms">
+                    <select class="form-select required" data-weight="5" id="symptoms" name="symptoms"
+                        required="required">
                         <option selected disabled>Selecionar..</option>
                         <option value="1">Leve</option>
                         <option value="3">Moderado</option>
                         <option value="5">Grave</option>
-                    </select>
-                </div>
-
-                <div class="col-12 mb-2">
-                    <label class="form-label" for="deterioration">Taxa de Deterioração:</label>
-                    <select class="form-select" data-weight="9" id="deterioration" name="deterioration">
-                        <option selected disabled>Selecionar..</option>
-                        <option value="1">Lenta</option>
-                        <option value="3">Moderada</option>
-                        <option value="5">Rápida</option>
                     </select>
                 </div>
 

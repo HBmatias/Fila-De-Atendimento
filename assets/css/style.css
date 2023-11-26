@@ -53,6 +53,11 @@ textarea {
     resize: vertical;
 }
 
+.form-control[required="required"],
+.form-select[required="required"] {
+    border: 1px solid red !important;
+}
+
 .form-select {
     width: 0.5rem;
     -moz-box-sizing: border-box;
@@ -85,7 +90,7 @@ textarea {
     box-shadow: 0 3px #494444;
 }
 
-input[type=button]{
+input[type=button] {
     text-align: center;
     width: 40%;
     height: 30%;

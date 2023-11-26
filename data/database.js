@@ -188,13 +188,108 @@ class Patient extends Tables {
      */
     getRowByCPF(cpf) {
         const patients = this.getData();
-        const keys = Object.keys(patients);
-        for (let i = 0; i < keys.length; i++) {
-            const key = keys[i];
-            if (patients[key].cpf === cpf.replace(/\D/g, '')) {
-                return patients[key];
+        let patient = {};
+        Object.keys(patients).forEach(key => {
+            if (patients[key].cpf == cpf) {
+                patient = patients[key];
+                patient.id = key;
             }
+        });
+        return patient;
+    }
+}
+
+/**
+ * Classe referência para simulação de tabela `priority_list` para armazenar a lista de prioridades
+ * @param {Object} priority_list Objeto com os dados padrão da lista de prioridades
+ */
+class PriorityList extends Tables {
+    constructor() {
+        super();
+
+        this.table = 'priority_list';
+
+        /**
+         * Lista de prioridades
+         * @type {Object} priority_list
+         * @property {String} priority_list[].patient_id ID do paciente
+         * @property {String} priority_list[].priority Prioridade do paciente [1, 2, 3]
+         *   - `priority` = 1: Prioridade Alta;
+         *   - `priority` = 2: Prioridade Média;
+         *   - `priority` = 3: Prioridade Baixa;
+         * 
+         * @property {String} priority_list[].date `data`: Data de Entrada na Lista de Prioridades
+         * @property {String} priority_list[].health `input`: Condição de Saúde
+         * @property {String} priority_list[].family `input`: Histórico Familiar
+         * @property {String} priority_list[].symptoms `input`: Sintomas Apresentados
+         * @property {String} priority_list[].deterioration `input`: Taxa de Deterioração
+         * @property {String} priority_list[].socioeconomic `input`: Situação Socioeconômica
+         * @property {String} priority_list[].accessToCare `input`: Acesso a Cuidados de Saúde
+         */
+        this.priority_list = {
+            "0": {
+                "patient_id": "0",
+                "priority": "1",
+                "date": "0000-00-00",
+                "health": "0",
+                "family": "0",
+                "symptoms": "0",
+                "deterioration": "0",
+                "socioeconomic": "0",
+                "accessToCare": "0",
+            },
+            "1": {
+                "patient_id": "1",
+                "priority": "2",
+                "date": "0000-00-00",
+                "health": "0",
+                "family": "0",
+                "symptoms": "0",
+                "deterioration": "0",
+                "socioeconomic": "0",
+                "accessToCare": "0",
+            },
+            "2": {
+                "patient_id": "2",
+                "priority": "3",
+                "date": "0000-00-00",
+                "health": "0",
+                "family": "0",
+                "symptoms": "0",
+                "deterioration": "0",
+                "socioeconomic": "0",
+                "accessToCare": "0",
+            },
+            "3": {
+                "patient_id": "3",
+                "priority": "1",
+                "date": "0000-00-00",
+                "health": "0",
+                "family": "0",
+                "symptoms": "0",
+                "deterioration": "0",
+                "socioeconomic": "0",
+                "accessToCare": "0",
+            },
+            "4": {
+                "patient_id": "4",
+                "priority": "2",
+                "date": "0000-00-00",
+                "health": "0",
+                "family": "0",
+                "symptoms": "0",
+                "deterioration": "0",
+                "socioeconomic": "0",
+                "accessToCare": "0",
+            },
+        };
+
+        //-- Create a default localStorage to priority_list
+        if (localStorage.getItem(this.table) == null) {
+            localStorage.setItem(this.table, JSON.stringify(this.priority_list));
         }
-        return {};
+
+        //-- Save the increment like last key in priority_list object
+        this.increment = Object.keys(this.getData()).length;
     }
 }
