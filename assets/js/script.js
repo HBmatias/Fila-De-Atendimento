@@ -1,5 +1,5 @@
 $(function () {
-    window.patients = new Patient();
+    window.patients = new Patients();
     window.priority = new PriorityList();
     console.log(window.patients, window.priority);
 
@@ -7,8 +7,6 @@ $(function () {
     $('#cpf').mask('000.000.000-00', { reverse: true });
 
     $(".listAccess").on("click", function (event) {
-        event.preventDefault()
-
         let
             /**
              * Contexto do formulário
@@ -43,6 +41,12 @@ $(function () {
             return false;
         }
 
+        //-- Valida se o paciente ja esta na fila
+        if (window.priority.exists(patient.id, "patient_id") === true) {
+            alert("Paciente já está na fila de prioridades!");
+            return false;
+        }
+
         /**
          * Aciona as regras de cálculo
          * @type {PriorityRules} priority
@@ -53,7 +57,7 @@ $(function () {
         window.priority.addRow({
             patient_id: patient.id,
             priority: priority.priority,
-            date: Date(),
+            date: new Date().toISOString().slice(0, 19).replace('T', ' '), // YYYY-MM-DD HH:MM:SS
             health: priority.health,
             family: priority.history,
             symptoms: priority.symptoms,
