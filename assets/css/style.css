@@ -96,3 +96,20 @@ input[type=button] {
     height: 30%;
     border-radius: 1rem;
 }
+
+.lista {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    margin-top: 1rem;
+    padding: .5rem;
+
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+}
+
+.lista p {
+    margin: 0px;
+}

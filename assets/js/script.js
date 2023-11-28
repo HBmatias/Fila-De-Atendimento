@@ -65,8 +65,10 @@ $(function () {
             accessToCare: data.accessToCare,
         });
 
-        console.log(window.priority);
+        alert(`O paciente ${patient.name} foi inserido na Fila de Atendimento!`);
     })
+
+    $("button.gerar").on("click", gerar);
 });
 
 /**
@@ -125,12 +127,18 @@ function getAge(birth) {
 }
 
 function gerar() {
-    let nomes = ["Diego", "Gabriel", "Lucas"];
-    let lista = document.getElementById('lista');
-    for (var i = 0; i < nomes.length; i++) {
-        let item = document.createElement('li');
-        item.appendChild(document.createTextNode(nomes[i]));
-        lista.appendChild(item);
+    let $obj = $(this),
+        ctx = $obj.parent().find(".lista"),
+        list = window.priority.getData();
+    for (let i in list) {
+        let item = $("<p>"),
+            lista = list[i],
+            patient = window.patients.getData(lista.patient_id);
+
+        if (lista.priority == $obj.data('priority')) {
+            item.html(patient.name);
+            ctx.append(item);
+        }
     }
 }
 
